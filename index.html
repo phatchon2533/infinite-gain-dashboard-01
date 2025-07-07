@@ -1,26 +1,38 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Gain Dashboard</title>
+    <title>สมัครนายหน้า Infinite Gain</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; padding: 50px; }
-        .card { background: #fff; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #333; }
-        .stats { margin: 20px 0; font-size: 1.5em; }
+        body { font-family: Arial, sans-serif; background: #f0f0f0; text-align: center; padding: 50px; }
+        .box { background: white; padding: 20px; border-radius: 10px; display: inline-block; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input, button { padding: 10px; margin: 10px; width: 80%; }
+        img { max-width: 200px; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Infinite Gain Dashboard</h1>
-        <div class="stats">
-            <p>ยอดขายวันนี้: <strong>99,999 บาท</strong></p>
-            <p>ผู้ใช้งานทั้งหมด: <strong>5,000 คน</strong></p>
-            <p>เหรียญ GAIN ทั้งหมด: <strong>1,200,000 GAIN</strong></p>
-        </div>
-        <p>ระบบพัฒนาอย่างต่อเนื่อง…</p>
+    <div class="box">
+        <h1>สมัครเป็นนายหน้า Infinite Gain</h1>
+        <p>รับรายได้จากการแนะนำสินค้าและบริการ</p>
+        <input type="text" id="name" placeholder="กรอกชื่อของคุณ"><br>
+        <button onclick="register()">สมัครรับลิงก์นายหน้า</button>
+        <p id="result"></p>
+        <h3>สนับสนุนระบบด้วยการสแกน QR พร้อมเพย์</h3>
+        <img src="promptpay_qr.png" alt="QR พร้อมเพย์">
     </div>
+
+<script>
+function register() {
+    let name = document.getElementById('name').value;
+    if(name.trim() === '') {
+        alert('กรุณากรอกชื่อ');
+        return;
+    }
+    let link = 'https://infinitegain.io/aff?ref=' + encodeURIComponent(name);
+    document.getElementById('result').innerHTML = 'ลิงก์ของคุณ: <br><b>' + link + '</b>';
+}
+</script>
 </body>
 </html>
